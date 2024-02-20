@@ -1,0 +1,90 @@
+<html>
+<head>
+	<style>
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 6px;
+            text-align: left;
+        }
+        td {
+            font-size:90%;}
+        th { background-color: #e5d95f; }
+        tr:nth-child(even) {
+            background-color: #eee;
+        }
+        tr:nth-child(odd) {
+            background-color: #fff;
+        }        
+        .button {
+            position:relative;
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+            margin-left:250;
+            padding:8;
+            font-size:15px;
+        }
+
+        .button:hover {background-color: #3e8e41}
+
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }    
+    </style>
+</head>
+<body>
+<div>
+	<h1 style="font-size:48px;"><img src="/static/Grouponlogo.png" alt="Grouponlogo" style="position:relative;width:35px;height:38px;">
+	 IMA - Job Monitor   <img src="/static/jmonitor.png" alt="jmonitor" style="position:relative;width:40px;height:38px;">
+	<input type="button" class="button" value="Refresh" onClick="location.href=location.href"></h1>
+</div>
+<p style="font-style:italic;">*Avg. RunTime - Over last 7 days</p>   
+	<table>
+	        <tbody>
+
+	                
+	            <tr>
+	            	<th>Job Name</th>
+	        	    <th>Status</th>
+	        	    <th>Start Time</th>
+	        	    <th>End Time</th>
+	        	    <th>Duration</th>
+	        	    <th>Avg. RunTime</th>
+	        	 </tr>
+
+	        	    {%for row in rows%}
+	        	<tr>
+	                {%for column in row%}
+	                    {% if column == 'Completed' %}
+	                        <td style="background-color: #7FFF00;">{{ column }}</td>
+	                    {% elif column == 'Running' %}
+	                        <td style="background-color: #FFA500;">{{ column }}</td>
+	                    {% elif column == 'Scheduled' %}
+	                        <td style="background-color: #FF6347;">{{ column }}</td>
+	                    {% elif column == None %}
+	                        <td></td>
+	                    {% else %}
+	                        <td>{{ column }}</td>
+	                    {% endif %}
+	                {% endfor %}
+	            </tr>
+	        {% endfor %}
+	    </tbody>
+	</table>
+</body>
+</html>
+
