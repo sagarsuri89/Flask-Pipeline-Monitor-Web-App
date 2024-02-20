@@ -1,10 +1,9 @@
-**Update username & password in jmonitor.py**
+# Flask Data Pipeline Job Monitor
 
-Project - jobmonitor->jmonitor.py
+This provides a framework for a flask-powered web data pipeline monitor.
 
-Folder "static" - has image files
+**Update username & password in job_monitor.py**
 
-Folder "templates" - has jmonitor_temp.html
 
 
 
